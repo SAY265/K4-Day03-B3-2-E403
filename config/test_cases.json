@@ -28,7 +28,7 @@
     "category": "🔴 Edge Case (Bẫy Guardrail)",
     "question": "Đăng ký giúp tôi môn Học máy nâng cao vào học kỳ 15 năm 2099 lớp học vào thứ 8.",
     "expected_behavior": "Tool kiểm tra dữ liệu đầu vào phát hiện học kỳ/thời gian không hợp lệ (lỗi tham số), Guardrail ngắt quy trình và trả về thông báo lỗi lịch sự cho sinh viên."
-  }
+  },
   {
     "id": 6,
     "category": "🟡 Multi-step (Cần Tool)",
