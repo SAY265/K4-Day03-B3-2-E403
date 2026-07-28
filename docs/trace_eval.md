@@ -21,10 +21,10 @@
 
 ### 🤖 Chatbot Baseline:
 * **Phản hồi**: *"Phản hồi giả lập offline cho bài test."*
-* **Nhận xét**: Không trả lời đúng trọng tâm .
+* **Nhận xét**: Không biết thông tin thực tế, bị ảo giác.
 
 ### 🧠 ReAct Agent:
-* **Thought 1**: Cần tra cứu môn học 'Cấu trúc dữ liệu và Giải thuật'.
+* **Thought 1**: Cần tra cứu thời tiết Hà Nội.
 * **Action 1**: `get_weather['Hà Nội']`
 * **Observation 1**: `Thời tiết Hà Nội: 28°C, Nắng nhẹ, Độ ẩm 65%.`
 * **Thought 2**: Đã có thông tin 28°C nắng nhẹ, đưa ra lời khuyên trang phục.
