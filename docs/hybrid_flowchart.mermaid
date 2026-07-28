@@ -1,0 +1,36 @@
+%% Role 5B: Hybrid Flowchart for question routing (Chatbot vs ReAct Agent)
+%% File: docs/hybrid_flowchart.mermaid
+
+flowchart TD
+  U[Người dùng: Đặt câu hỏi] --> Q{Câu hỏi đơn giản hay phức tạp?}
+  Q -- Đơn giản --> Chatbot[Chatbot (Baseline)]
+  Chatbot --> ChatbotResp[Trả lời trực tiếp bằng kiến thức tĩnh]
+
+  Q -- Phức tạp / Cần dữ liệu --> ReAct[ReAct Agent]
+  ReAct --> Search[Action: Tìm mã môn / tra cứu catalog]
+  Search --> Found{Tìm thấy khóa học?}
+  Found -- Có --> Prereq[Action: Kiểm tra điều kiện tiên quyết]
+  Prereq --> Elig{Sinh viên đủ điều kiện?}
+  Elig -- Có --> Accept[Trả lời: Có thể đăng ký]
+  Elig -- Không --> Reject[Trả lời: Chưa đủ điều kiện; hướng dẫn bổ sung môn/điều kiện]
+
+  Found -- Không --> AskUser[Action: Yêu cầu thêm thông tin từ sinh viên]
+  AskUser --> WaitForInfo[Chờ thông tin chi tiết (mã môn / tên khác)]
+  WaitForInfo --> ReAct
+
+  style U fill:#f9f,stroke:#333,stroke-width:1px
+  style Q fill:#ffecb3,stroke:#333
+  style Chatbot fill:#cfe9ff
+  style ReAct fill:#cfe9d8
+  style Search fill:#f0f0f0
+  style Found fill:#fff2cc
+  style Prereq fill:#f7d7e8
+  style Elig fill:#fff2cc
+  style Accept fill:#d4f7d4
+  style Reject fill:#ffd6d6
+  style AskUser fill:#fff1cc
+
+%% Notes:
+%% - "Đơn giản" = có thể trả lời bằng kiến thức tĩnh hoặc FAQ.
+%% - "Phức tạp" = cần tra cứu dữ liệu thời thực (mã môn, bảng điểm, lịch học).
+%% - Role 5B: vẽ, tinh chỉnh sơ đồ này và lưu vào docs/hybrid_flowchart.mermaid
