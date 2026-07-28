@@ -103,6 +103,8 @@ class OpenRouterProvider(BaseLLMProvider):
     def __init__(self, api_key: str = None, model: str = None):
         self.api_key = api_key or os.getenv("OPENROUTER_API_KEY")
         self.model_name = model or os.getenv("LLM_MODEL") or "google/gemini-2.5-flash"
+        # Avoid OpenRouter's potentially large model default exceeding account limits.
+        self.max_tokens = int(os.getenv("LLM_MAX_TOKENS", "1024"))
         
     def generate(self, prompt: str, system_prompt: str = "") -> str:
         if not self.api_key or self.api_key == "your_openrouter_api_key_here":
@@ -119,7 +121,8 @@ class OpenRouterProvider(BaseLLMProvider):
             
             payload = {
                 "model": self.model_name,
-                "messages": messages
+                "messages": messages,
+                "max_tokens": self.max_tokens
             }
             res = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload, timeout=30)
             if res.status_code == 200:
