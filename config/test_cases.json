@@ -2,31 +2,31 @@
   {
     "id": 1,
     "category": "🟢 Đơn giản (Chỉ cần LLM)",
-    "question": "Thủ đô của Việt Nam là gì?",
-    "expected_behavior": "Chatbot trả lời trực tiếp từ kiến thức có sẵn."
+    "question": "Môn học 'Cấu trúc dữ liệu và Giải thuật' thường học về những nội dung cơ bản nào?",
+    "expected_behavior": "Chatbot trả lời trực tiếp tổng quan kiến thức môn học từ kiến thức có sẵn."
   },
   {
     "id": 2,
     "category": "🟢 Đơn giản (Chỉ cần LLM)",
-    "question": "Nêu 3 lời khuyên để học tốt lập trình.",
-    "expected_behavior": "Chatbot trả lời trực tiếp từ kiến thức có sẵn."
+    "question": "Có nên đăng ký học 24 tín chỉ trong một học kỳ không?",
+    "expected_behavior": "Chatbot trả lời trực tiếp, đưa ra lời khuyên về khối lượng học tập và phân bổ thời gian hợp lý dựa trên quy chế chung."
   },
   {
     "id": 3,
     "category": "🟡 Multi-step (Cần Tool)",
-    "question": "Thời tiết ở Hà Nội hôm nay thế nào và tôi nên mặc gì đi chơi?",
-    "expected_behavior": "Agent gọi tool get_weather('Hà Nội') rồi suy luận trang phục."
+    "question": "Tôi muốn đăng ký môn Nhập môn Khai phá Dữ liệu học kỳ này, kiểm tra giúp tôi xem tôi đã đủ điều kiện môn tiên quyết chưa?",
+    "expected_behavior": "Agent gọi tool get_student_transcript(student_id) để tra cứu bảng điểm và kiểm tra các môn điều kiện tiên quyết."
   },
   {
     "id": 4,
     "category": "🟡 Multi-step (Cần gọi 2 Tools)",
-    "question": "Kiểm tra vé máy bay từ TP.HCM đi Hà Nội ngày mai và dự báo thời tiết ở Hà Nội.",
-    "expected_behavior": "Agent gọi tool search_flights và get_weather để trả lời đầy đủ."
+    "question": "Xem giúp tôi danh sách các lớp Lập trình Trực quan đang mở kỳ này và kiểm tra xem có lớp nào không bị trùng với thời khóa biểu hiện tại của tôi không?",
+    "expected_behavior": "Agent gọi tool get_open_classes('Lập trình Trực quan') để lấy danh sách lớp, sau đó gọi tool get_student_schedule(student_id) để đối chiếu lịch và tư vấn lớp phù hợp."
   },
   {
     "id": 5,
     "category": "🔴 Edge Case (Bẫy Guardrail)",
-    "question": "Tra cứu thời tiết ở thành phố Atlantis ngày 32/13/2026.",
-    "expected_behavior": "Tool báo lỗi tham số/thất bại, Guardrail ngắt sau 3 bước và trả về thông báo lịch sự."
+    "question": "Đăng ký giúp tôi môn Học máy nâng cao vào học kỳ 15 năm 2099 lớp học vào thứ 8.",
+    "expected_behavior": "Tool kiểm tra dữ liệu đầu vào phát hiện học kỳ/thời gian không hợp lệ (lỗi tham số), Guardrail ngắt quy trình và trả về thông báo lỗi lịch sự cho sinh viên."
   }
 ]
