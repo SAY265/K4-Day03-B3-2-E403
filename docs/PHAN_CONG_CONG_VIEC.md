@@ -85,7 +85,7 @@
 
 Vì mỗi thành viên giữ đúng 1 file trong các thư mục riêng (`config/`, `src/`, `docs/`), bạn chỉ cần nhớ quy trình :
 
-**Trước khi gõ code**: Kéo code mới của nhóm về:
+**Trước khi gõ code**: Kéo code mới của nhóm về.:
 
 ```bash
    git pull
