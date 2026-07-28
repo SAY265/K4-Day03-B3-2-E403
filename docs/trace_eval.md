@@ -17,16 +17,22 @@
 
 ## 🔍 2. SO SÁNH PHẢN HỒI (TEST CASE #3)
 
-**Câu hỏi**: *"Môn học 'Cấu trúc dữ liệu và Giải thuật' thường học về những nội dung cơ bản nào?"*
+**Câu hỏi**: *"Tôi muốn đăng ký môn Nhập môn Khai phá Dữ liệu học kỳ này, kiểm tra giúp tôi xem tôi đã đủ điều kiện môn tiên quyết chưa?"*
 
 ### 🤖 Chatbot Baseline:
 * **Phản hồi**: *"Phản hồi giả lập offline cho bài test."*
 * **Nhận xét**: Không biết thông tin thực tế, bị ảo giác.
 
 ### 🧠 ReAct Agent:
-* **Thought 1**: Cần tra cứu thời tiết Hà Nội.
-* **Action 1**: `get_weather['Hà Nội']`
-* **Observation 1**: `Thời tiết Hà Nội: 28°C, Nắng nhẹ, Độ ẩm 65%.`
-* **Thought 2**: Đã có thông tin 28°C nắng nhẹ, đưa ra lời khuyên trang phục.
-* **Final Answer**: *"Thời tiết Hà Nội hôm nay 28°C, nắng nhẹ. Bạn nên mặc quần áo thoáng mát!"*
-* **Nhận xét**: Hoàn thành xuất sắc nhiệm vụ nhờ sự kết hợp giữa suy luận và công cụ.
+* **Thought 1**: Sinh viên muốn đăng ký môn "Nhập môn Khai phá Dữ liệu" và muốn kiểm tra điều kiện tiên quyết. Để làm được điều này, tôi cần mã môn học của môn này trước, sau đó hỏi sinh viên về các môn đã hoàn thành để kiểm tra tiên quyết.
+* **Action 1**: `search_courses[keyword="Nhập môn Khai phá Dữ liệu"]`
+* **Observation 1**: `KHÔNG TÌM THẤY: Không có khóa học nào phù hợp với các tiêu chí đã cung cấp.`
+* **Thought 2**: Tôi không tìm thấy môn "Nhập môn Khai phá Dữ liệu" với từ khóa chính xác. Có thể tên môn học không hoàn toàn khớp hoặc có thể có tên tiếng Anh. Tôi sẽ thử tìm kiếm với từ khóa chung hơn như "Khai phá Dữ liệu".
+* **Action 2**: `search_courses[keyword="Khai phá Dữ liệu"]`
+* **Observation 2**: `KHÔNG TÌM THẤY: Không có khóa học nào phù hợp với các tiêu chí đã cung cấp.`
+* **Thought 3**: Tôi sẽ thử tìm kiếm với một từ khóa tiếng Anh phổ biến cho lĩnh vực này là "Data Mining" để mở rộng phạm vi tìm kiếm.
+* **Action 3**: `search_courses[keyword="Data Mining"]`
+* **Observation 3**: `KHÔNG TÌM THẤY: Không có khóa học nào phù hợp với các tiêu chí đã cung cấp.`
+* **Thought 4**: Tôi đã thử nhiều từ khóa khác nhau nhưng đều không tìm thấy khóa học trong hệ thống dữ liệu. Vì vậy, tôi không thể kiểm tra điều kiện tiên quyết vì chưa có đủ thông tin về môn học.
+* **Final Answer**: *"Rất tiếc, tôi không thể tìm thấy khóa học 'Nhập môn Khai phá Dữ liệu' trong hệ thống của mình với các từ khóa đã thử. Bạn có thể vui lòng cung cấp thêm thông tin hoặc tên chính xác của khóa học để tôi kiểm tra điều kiện tiên quyết cho bạn?"*
+* **Nhận xét**: Agent đã thể hiện khả năng suy luận đa bước và thử nhiều cách truy vấn khác nhau, nhưng vẫn chưa thể hoàn thành nhiệm vụ vì dữ liệu môn học và tiên quyết chưa có trong hệ thống.
