@@ -17,14 +17,14 @@
 
 ## 🔍 2. SO SÁNH PHẢN HỒI (TEST CASE #3)
 
-**Câu hỏi**: *"Thời tiết ở Hà Nội hôm nay thế nào và tôi nên mặc gì đi chơi?"*
+**Câu hỏi**: *"Môn học 'Cấu trúc dữ liệu và Giải thuật' thường học về những nội dung cơ bản nào?"*
 
 ### 🤖 Chatbot Baseline:
-* **Phản hồi**: *"Tôi không có truy cập Internet thời gian thực nên không biết thời tiết hôm nay ở Hà Nội."*
-* **Nhận xét**: An toàn nhưng không giải quyết được nhu cầu thực tế của người dùng.
+* **Phản hồi**: *"Phản hồi giả lập offline cho bài test."*
+* **Nhận xét**: Không trả lời đúng trọng tâm .
 
 ### 🧠 ReAct Agent:
-* **Thought 1**: Cần tra cứu thời tiết Hà Nội.
+* **Thought 1**: Cần tra cứu môn học 'Cấu trúc dữ liệu và Giải thuật'.
 * **Action 1**: `get_weather['Hà Nội']`
 * **Observation 1**: `Thời tiết Hà Nội: 28°C, Nắng nhẹ, Độ ẩm 65%.`
 * **Thought 2**: Đã có thông tin 28°C nắng nhẹ, đưa ra lời khuyên trang phục.
